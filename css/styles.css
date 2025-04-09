@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Novecento';
-    src: url('Novecento-Wide-Normal-2.otf') format('opentype');
+    src: url('../fonts/Novecento-Wide-Normal-2.otf') format('opentype');
 }
 
 * {
@@ -17,6 +17,7 @@ body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    transition: all 1s ease;
 }
 
 .container {
@@ -38,6 +39,7 @@ body {
     width: 223px;
     height: 222px;
     object-fit: contain;
+    transition: opacity 1s ease;
 }
 
 .text-container {
@@ -49,6 +51,8 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 10px;
+    width: 80vw; /* 控制文本容器宽度 */
+    max-width: 800px; /* 最大宽度限制 */
 }
 
 .text-row {
@@ -65,8 +69,33 @@ body {
     cursor: pointer;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     user-select: none;
+    opacity: 1;
+    transition: opacity 1s ease;
 }
 
+.hidden-message {
+    color: white;
+    font-family: 'Novecento', sans-serif;
+    font-size: 2.5em;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 1s ease;
+    text-align: center;
+    line-height: 1.4;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    white-space: pre-line; /* 保留换行符 */
+}
+
+.final-message {
+    color: white;
+    font-family: 'Novecento', sans-serif;
+    font-size: 3em;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 1s ease;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
 
 /* 响应式设计 */
 @media (max-width: 768px) {
@@ -78,6 +107,14 @@ body {
     .letter {
         font-size: 1.5em;
     }
+
+    .hidden-message {
+        font-size: 1.8em;
+    }
+
+    .final-message {
+        font-size: 2em;
+    }
 }
 
 @media (max-width: 480px) {
@@ -88,5 +125,13 @@ body {
     
     .letter {
         font-size: 1.2em;
+    }
+
+    .hidden-message {
+        font-size: 1.4em;
+    }
+
+    .final-message {
+        font-size: 1.6em;
     }
 }
